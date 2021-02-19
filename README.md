@@ -1,27 +1,25 @@
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+
 # 11 Express.js: Note Taker
 
+## Description
+This application takes advantage of the express.js framework to create a basic backend server for handling data, connected to a front end that can be used to take notes and store them server side. This application is also deployed on Heroku at the following link: [https://jcx-note-taker.herokuapp.com/](https://jcx-note-taker.herokuapp.com/). Please note the data is centralized, and any notes saved into the sidebar will be visible to all other visitors to the site.
 
-## Grading Requirements
-### Technical Acceptance Criteria: 40%
-* Satisfies all of the preceding acceptance criteria plus the following:
-  * Application front end must connect to an Express.js back end.
-  * Application back end must store notes with unique IDs in a JSON file.
-  * Application must be deployed to Heroku.
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
 
-### Deployment: 36%
-* Application deployed at live URL.
-* Application loads with no errors.
-* Application GitHub URL submitted.
-* GitHub repository contains application code.
+## Installation
+To install locally, please download the entire package and then use the node package manager to install the requisite files with "npm install". The server can then be ran locally using "node server.js".
 
-### Repository Quality: 13%
-* Repository has a unique name.
-* Repository follows best practices for file structure and naming conventions.
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-* Repository contains multiple descriptive commit messages.
-* Repository contains quality README file with description, screenshot, and link to deployed application.
+## Usage
 
-## Review
-You are required to submit BOTH of the following for review:
-* The URL of the functional, deployed application.
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+![Screenshot 1](./public/assets/screenshot.png)
+
+## License
+ISC License: Copyright (C) 2021 JingChang Xiao 
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies. 
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
