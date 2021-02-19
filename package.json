@@ -1,0 +1,23 @@
+{
+  "name": "utor-notetaker",
+  "version": "1.0.0",
+  "description": "Note pad app",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sinsinkun/UTOR-NoteTaker.git"
+  },
+  "author": "JC Xiao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sinsinkun/UTOR-NoteTaker/issues"
+  },
+  "homepage": "https://github.com/sinsinkun/UTOR-NoteTaker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
