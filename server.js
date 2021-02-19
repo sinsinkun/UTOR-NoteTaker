@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 // allow handling of json files
 app.use(express.urlencoded({ extended: true }));
@@ -15,23 +15,25 @@ app.use(express.static('public'));
 
 // delete an existing note from DB
 app.delete('/api/notes/:id', (req,res) => {
-  console.log('API REQUEST: Trying to delete note \#', req.param.id);
+  console.log('API REQUEST: delete note \#', req.params.id);
+  console.log(req.params);
+  let dbData = JSON.parse(fs.readFileSync('./db/db.json'));
+  dbData = dbData.filter(entry => !(entry.id == req.params.id));
+  fs.writeFileSync('./db/db.json', JSON.stringify(dbData));
   res.end();
-});
-// show an existing note from DB
-app.get('/api/notes/:id', (req,res) => {
-  console.log('API REQUEST: Trying to show note \#', req.param.id);
-  res.send('test');
 });
 // add new note to DB
 app.post('/api/notes', (req,res) => {
-  console.log('API REQUEST: Trying to save a new note', req.body);
+  console.log('API REQUEST: save a new note', req.body);
+  let dbData = JSON.parse(fs.readFileSync('./db/db.json'));
+  dbData.push( {id:dbData.length, title:req.body.title, text:req.body.text} );
+  fs.writeFileSync('./db/db.json', JSON.stringify(dbData));
   res.end();
 });
 // fetch existing DB
 app.get('/api/notes', (req,res) => {
-  console.log('API REQUEST: Trying to fetch existing notes data');
-  const dbData = fs.readFileSync('./db/db.json', {encoding:'utf8'});
+  console.log('API REQUEST: fetch existing notes data');
+  const dbData = JSON.parse(fs.readFileSync('./db/db.json'));
   res.send(dbData);
 });
 
@@ -41,7 +43,7 @@ app.get('/api/notes', (req,res) => {
 
 // handle html page requests
 app.get('/:page', (req, res) => {
-  console.log('PAGE REQUEST: Trying to access page', req.params.page);
+  console.log('PAGE REQUEST: access page', req.params.page);
   if (req.params.page === 'notes') res.sendFile(__dirname + '/public/notes.html');
   else res.send(
   `<div style="text-align:center">
@@ -51,5 +53,5 @@ app.get('/:page', (req, res) => {
 
 // open server
 app.listen(PORT, () => {
-  console.log('Opened server at localhost:8080');
+  console.log(`Opened server at localhost:${PORT}`);
 });
